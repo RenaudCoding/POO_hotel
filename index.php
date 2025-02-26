@@ -36,22 +36,17 @@ $reservation3 = new Reservation("08-04-2021", "13-04-2021", $client2, $chambre12
 
 
 
-echo $hotel1;
+echo $hotel2;
 
-echo $reservation2;
+// echo $reservation2;
 
-echo $chambre1;
+// echo $chambre1;
 
-echo $client2;
-
-
+// echo $client2;
 
 
 
-
-
-
-
+// $hotel2->statutDesChambres();
 
 
 

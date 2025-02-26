@@ -26,13 +26,27 @@ Class Hotel{
     }
    
     public function __toString(){
-        $listeChambresString = implode(" ", $this->listeChambres);
-        $infoHotel = "Hotel ".$this->nomHotel."<br>".$this->adresse." ".$this->codePostal." ".$this->ville."<br>".
-                                    $listeChambresString;
+        $nbChambres  = count($this->listeChambres);
+        $infoHotel = $this->nomHotel." ".$this->ville."<br>"
+                    .$this->adresse." ".$this->codePostal." "
+                    .$this->ville."<br>Nombre de chambres : ".$nbChambres
+                    ;
         return $infoHotel;
     }
 
-    
+    public function infoHotel(){
+
+    }
+
+
+    public function statutDesChambres(){
+        $listeChambresString = implode(" ", $this->listeChambres);
+        $statutDesChambres = "Statuts des chambres de ".$this->nomHotel." ".$this->ville."<br>"
+                            .$listeChambresString;
+        echo $statutDesChambres;
+    }
+
+       
     //getters
     public function getNomHotel(){
         return $this->nomHotel;
