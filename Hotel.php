@@ -29,14 +29,14 @@ Class Hotel{
         $this->listeChambres[] = $chambre;
     }
 
-    public function ajouterReservation(Reservation $reservation){
+    public function ajouterReservation(Reservation $reservation){   // ajouter une réservation à la liste des réservations
         $this->listeReservations[] = $reservation;
     }
    
-    public function __toString(){
-        $nbChambres  = count($this->listeChambres);
-        $nbChambresReservees = count($this->listeReservations);
-        $nbChambresDispo = $nbChambres - $nbChambresReservees;
+    public function __toString(){  // infos sur l'hotel (1er capture)
+        $nbChambres  = count($this->listeChambres); // nombre total de chambre dans l'hôtel
+        $nbChambresReservees = count($this->listeReservations); // nombre de chambre réservée
+        $nbChambresDispo = $nbChambres - $nbChambresReservees; // nombre de chambre dispo
         $infoHotel = $this->nomHotel." ".$this->ville."<br>"
                     .$this->adresse." ".$this->codePostal." "
                     .$this->ville."<br>Nombre total de chambres : ".$nbChambres."<br>Nombre de chambre réservées : ".$nbChambresReservees
@@ -44,7 +44,7 @@ Class Hotel{
         return $infoHotel;
     }
 
-    public function listeReservationsHotel(){
+    public function listeReservationsHotel(){ // liste des réservations auprès de l'hôtel (2ème capture - manque nom, prénom client et nom chambre)
         $infoReservationsHotel = implode(" ", $this->listeReservations);
         $listeReservationHotel = "Reservation de l'hôtel ".$this->nomHotel."<br>".$infoReservationsHotel;
         echo $listeReservationHotel;
@@ -52,7 +52,7 @@ Class Hotel{
     }
 
 
-    public function statutDesChambres(){
+    public function statutDesChambres(){ // statut des chambres
         $listeChambresString = implode(" ", $this->listeChambres);
         $statutDesChambres = "Statuts des chambres de ".$this->nomHotel." ".$this->ville."<br>"
                             .$listeChambresString;

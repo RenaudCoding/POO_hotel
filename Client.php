@@ -21,12 +21,12 @@ Class Client{
     }
 
    
-    public function __toString(){  
+    public function __toString(){  // nom et prénom du client
         $infoClient = $this->prenomClient." ".$this->nomClient."<br>";
         return $infoClient;
         }
 
-        public function listeReservationsClient(){  // liste des reservations d'un client
+        public function listeReservationsClient(){  // liste des reservations d'un client (3ème capture - manque nom hotel et infos chambre)
             $infoReservation = implode(" ", $this->reservations);
             $listeReservations = "Reservations de ".$this->prenomClient." ".$this->nomClient."<br>".$infoReservation;
             echo $listeReservations;

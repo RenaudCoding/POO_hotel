@@ -9,7 +9,7 @@ Class Reservation{
     private string $dateFin;
     private Client $client;
     private Chambre $chambre;
-    private Hotel $hotel;
+    private Hotel $hotel; // déclaration de la classe propriété pour établir la liste des réservations par hôtel (facultatif ?)
 
     //methode
     public function __construct(string $dateDebut, string $dateFin, Client $client, Chambre $chambre, Hotel $hotel){
@@ -18,8 +18,8 @@ Class Reservation{
         $this->client = $client;
         $this->chambre = $chambre;
         $this->hotel = $hotel;
-        $this->client->ajouterReservation($this);
-        $this->hotel->ajouterReservation($this);
+        $this->client->ajouterReservation($this); // rajouter la réservation dans la liste des réservations de la classe client
+        $this->hotel->ajouterReservation($this); // rajouter la réservation dans la liste des réservations de la classe hôtel (facultatif ?)
 
     }
 
@@ -32,7 +32,7 @@ Class Reservation{
     }
     
 
-    public function __toString(){
+    public function __toString(){ //date de la réservation
         $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin."<br>";
         return $infoReservation;
     }

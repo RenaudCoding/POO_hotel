@@ -19,12 +19,12 @@ Class Chambre{
         $this->statut = $statut;
         $this->wifi = $wifi;
         $this->hotel = $hotel;
-        $this->hotel->ajouterChambre($this);
+        $this->hotel->ajouterChambre($this); // ajouter la chambre à la listes des chambres de l'hôtel
     }
 
     
 
-    public function __toString(){
+    public function __toString(){ // infos de la chambre
         $infoChambre = $this->nomChambre." / ".$this->prix." / Wifi : ".$this->wifi." / Diponibilité : ".$this->statut."<br>";
         return $infoChambre;
     }
