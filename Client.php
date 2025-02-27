@@ -7,15 +7,23 @@ Class Client{
     //propriétés
     private string $nomClient;
     private string $prenomClient;
+    private array $reservations = [];
 
     //methode
     public function __construct(string $nomClient, string $prenomClient){
         $this->nomClient = $nomClient;
         $this->prenomClient = $prenomClient;
+        $this->reservations = [];
     }
 
+    public function ajouterReservation(Reservation $reservation){
+        $this->reservations[] = $reservation;
+    }
+
+   
     public function __toString(){
-        $infoClient = $this->prenomClient." ".$this->nomClient."<br>";
+        $infoReservation = implode(" ", $this->reservations);
+        $infoClient = $this->prenomClient." ".$this->nomClient."<br>".$infoReservation;
         return $infoClient;
         }
 

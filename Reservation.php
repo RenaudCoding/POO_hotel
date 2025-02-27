@@ -16,6 +16,7 @@ Class Reservation{
         $this->dateFin = $dateFin;
         $this->client = $client;
         $this->chambre = $chambre;
+        $this->client->ajouterReservation($this);
     }
 
     public function ajouterClient(Client $clients){
@@ -28,7 +29,7 @@ Class Reservation{
     
 
     public function __toString(){
-        $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin."<br>Client : ".$this->client.$this->chambre;
+        $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin."<br>";
         return $infoReservation;
     }
 

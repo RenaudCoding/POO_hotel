@@ -29,7 +29,7 @@ Class Hotel{
         $nbChambres  = count($this->listeChambres);
         $infoHotel = $this->nomHotel." ".$this->ville."<br>"
                     .$this->adresse." ".$this->codePostal." "
-                    .$this->ville."<br>Nombre de chambres : ".$nbChambres
+                    .$this->ville."<br>Nombre de chambres : ".$nbChambres."<br>"
                     ;
         return $infoHotel;
     }
