@@ -30,20 +30,13 @@ $client2 = new Client("MURMANN", "Micka");
 
 
 
-$reservation1 = new Reservation("01-01-2021", "05-01-2021", $client1, $chambre1);
-$reservation2 = new Reservation("11-03-2021", "14-03-2021", $client2, $chambre3);
-$reservation3 = new Reservation("08-04-2021", "13-04-2021", $client2, $chambre12);
+$reservation1 = new Reservation("01-01-2021", "05-01-2021", $client1, $chambre1, $hotel1);
+$reservation2 = new Reservation("11-03-2021", "14-03-2021", $client2, $chambre3, $hotel1);
+$reservation3 = new Reservation("08-04-2021", "13-04-2021", $client2, $chambre12, $hotel2);
 
 
 
-echo $hotel2;
-
-echo $client2;
-
-
-var_dump($client2);
-
-
+// echo $client2;
 
 // echo $reservation2;
 
@@ -53,5 +46,21 @@ var_dump($client2);
 
 
 
-// $hotel2->statutDesChambres();
+
+echo $hotel2;
+
+$hotel1->listeReservationsHotel();
+
+$client2->listeReservationsClient();
+
+$hotel2->statutDesChambres();
+
+
+
+
+
+
+
+
+
 

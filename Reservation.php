@@ -9,14 +9,18 @@ Class Reservation{
     private string $dateFin;
     private Client $client;
     private Chambre $chambre;
+    private Hotel $hotel;
 
     //methode
-    public function __construct(string $dateDebut, string $dateFin, Client $client, Chambre $chambre){
+    public function __construct(string $dateDebut, string $dateFin, Client $client, Chambre $chambre, Hotel $hotel){
         $this->dateDebut = $dateDebut;
         $this->dateFin = $dateFin;
         $this->client = $client;
         $this->chambre = $chambre;
+        $this->hotel = $hotel;
         $this->client->ajouterReservation($this);
+        $this->hotel->ajouterReservation($this);
+
     }
 
     public function ajouterClient(Client $clients){
@@ -32,6 +36,8 @@ Class Reservation{
         $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin."<br>";
         return $infoReservation;
     }
+
+    
 
     //getters
     public function getDateDebut(){

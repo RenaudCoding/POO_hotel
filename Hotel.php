@@ -10,6 +10,8 @@ Class Hotel{
     private string $codePostal;
     private string $ville;
     private array $listeChambres = [];  // liste des chambres
+    private array $listeReservations = [];  // liste des réservations
+    
 
 
     //méthode
@@ -19,22 +21,33 @@ Class Hotel{
         $this->codePostal = $codePostal;
         $this->ville = $ville;
         $this->listeChambres = [];
+        $this->listeReservations = [];
+        
     }
 
     public function ajouterChambre(Chambre $chambre){ // ajouter une chambre à la liste des chambres
         $this->listeChambres[] = $chambre;
     }
+
+    public function ajouterReservation(Reservation $reservation){
+        $this->listeReservations[] = $reservation;
+    }
    
     public function __toString(){
         $nbChambres  = count($this->listeChambres);
+        $nbChambresReservees = count($this->listeReservations);
+        $nbChambresDispo = $nbChambres - $nbChambresReservees;
         $infoHotel = $this->nomHotel." ".$this->ville."<br>"
                     .$this->adresse." ".$this->codePostal." "
-                    .$this->ville."<br>Nombre de chambres : ".$nbChambres."<br>"
-                    ;
+                    .$this->ville."<br>Nombre total de chambres : ".$nbChambres."<br>Nombre de chambre réservées : ".$nbChambresReservees
+                    ."<br>Nombre de chambre dispo : ".$nbChambresDispo."<br>";
         return $infoHotel;
     }
 
-    public function infoHotel(){
+    public function listeReservationsHotel(){
+        $infoReservationsHotel = implode(" ", $this->listeReservations);
+        $listeReservationHotel = "Reservation de l'hôtel ".$this->nomHotel."<br>".$infoReservationsHotel;
+        echo $listeReservationHotel;
 
     }
 

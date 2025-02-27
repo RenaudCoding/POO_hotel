@@ -7,7 +7,7 @@ Class Client{
     //propriétés
     private string $nomClient;
     private string $prenomClient;
-    private array $reservations = [];
+    private array $reservations = []; // liste des reservations
 
     //methode
     public function __construct(string $nomClient, string $prenomClient){
@@ -16,16 +16,22 @@ Class Client{
         $this->reservations = [];
     }
 
-    public function ajouterReservation(Reservation $reservation){
+    public function ajouterReservation(Reservation $reservation){ // ajouter une reservation à la liste des réservation d'un client
         $this->reservations[] = $reservation;
     }
 
    
-    public function __toString(){
-        $infoReservation = implode(" ", $this->reservations);
-        $infoClient = $this->prenomClient." ".$this->nomClient."<br>".$infoReservation;
+    public function __toString(){  
+        $infoClient = $this->prenomClient." ".$this->nomClient."<br>";
         return $infoClient;
         }
+
+        public function listeReservationsClient(){  // liste des reservations d'un client
+            $infoReservation = implode(" ", $this->reservations);
+            $listeReservations = "Reservations de ".$this->prenomClient." ".$this->nomClient."<br>".$infoReservation;
+            echo $listeReservations;
+        }
+
 
     //getters
     public function getNomClient(){
