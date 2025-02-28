@@ -20,7 +20,7 @@ $chambre3 = new Chambre("Chambre3", 120, FALSE, FALSE, $hotel1);
 
 $chambre10 = new Chambre("Chambre10", 300, TRUE, TRUE, $hotel2);
 $chambre11 = new Chambre("Chambre11", 300, FALSE, TRUE, $hotel2);
-$chambre12 = new Chambre("Chambre12", 300, TRUE, TRUE, $hotel2);
+$chambre12 = new Chambre("Chambre12", 300, FALSE, TRUE, $hotel2);
 $chambre13 = new Chambre("Chambre13", 300, TRUE, TRUE, $hotel2);
 
 
@@ -50,10 +50,14 @@ $reservation3 = new Reservation("08-04-2021", "13-04-2021", $client2, $chambre12
 echo $hotel2;
 
 $hotel1->listeReservationsHotel();
+// var_dump($hotel1);
+
 
 $client2->listeReservationsClient();
+// var_dump($client2);
 
-$hotel2->statutDesChambres();
+
+$hotel1->statutDesChambres();
 
 
 

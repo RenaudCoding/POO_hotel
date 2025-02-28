@@ -33,7 +33,7 @@ Class Reservation{
     
 
     public function __toString(){ //date de la réservation
-        $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin."<br>";
+        $infoReservation = "du ".$this->dateDebut." au ".$this->dateFin;
         return $infoReservation;
     }
 
@@ -57,6 +57,46 @@ Class Reservation{
         $this->dateFin = $dateFin;
     }
 
+
+    /**
+     * Get the value of client
+     */ 
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Set the value of client
+     *
+     * @return  self
+     */ 
+    public function setClient($client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chambre
+     */ 
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    /**
+     * Set the value of chambre
+     *
+     * @return  self
+     */ 
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+
+        return $this;
+    }
 }
 
 

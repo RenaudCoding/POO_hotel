@@ -31,6 +31,11 @@ Class Chambre{
 
 
     //getters
+
+    public function getChambre(){
+        return $this->Chambre;
+    }
+
     public function getNomChambre(){
         return $this->nomChambre;
     }
@@ -44,7 +49,18 @@ Class Chambre{
     }
 
     public function getWifi(){
-        return $this->wifi;
+        if ($this->wifi == TRUE){
+            $dispoWifi = "oui";
+        } else $dispoWifi = "non";
+        return $dispoWifi;
+    }
+
+   /**
+     * Get the value of hotel
+     */ 
+    public function getHotel()
+    {
+        return $this->hotel;
     }
 
     //setters
@@ -62,6 +78,17 @@ Class Chambre{
 
     public function setWifi(){
         $this->wifi = $wifi;
+    }
+
+    /**
+     * Set the value of hotel
+     *
+     */ 
+    public function setHotel($hotel)
+    {
+        $this->hotel = $hotel;
+
+        return $this;
     }
 
 

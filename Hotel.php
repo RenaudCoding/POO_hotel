@@ -46,17 +46,29 @@ Class Hotel{
 
     public function listeReservationsHotel(){ // liste des réservations auprès de l'hôtel (2ème capture - manque nom, prénom client et nom chambre)
         $infoReservationsHotel = implode(" ", $this->listeReservations);
-        $listeReservationHotel = "Reservation de l'hôtel ".$this->nomHotel."<br>".$infoReservationsHotel;
-        echo $listeReservationHotel;
-
+        echo "Reservation de l'hôtel ".$this->nomHotel."<br>";
+        $nbReservation  = count($this->listeReservations);
+        echo $nbReservation." réservation<br>";
+        foreach ($this->listeReservations as $reserv){
+            $client = $reserv->getClient()->getPrenomClient()." ".$reserv->getClient()->getNomClient();
+            $chambre = $reserv->getChambre()->getNomChambre();
+            $periode = $reserv->__toString();
+            echo $client." - ".$chambre." - ".$periode."<br>";
+        }
     }
 
 
-    public function statutDesChambres(){ // statut des chambres
+    public function statutDesChambres(){ // statut des chambres (4ème capture)
         $listeChambresString = implode(" ", $this->listeChambres);
-        $statutDesChambres = "Statuts des chambres de ".$this->nomHotel." ".$this->ville."<br>"
-                            .$listeChambresString;
-        echo $statutDesChambres;
+        echo "Statut des chambres de ".$this->nomHotel." ".$this->ville."<br>";
+        foreach ($this->listeChambres as $chambre){
+            $laChambre = $chambre->getNomChambre();
+            $prix = $chambre->getPrix();
+            $wifi = $chambre->getWifi();
+            $statut = $chambre->getStatut();
+            echo $laChambre." ".$prix." ".$wifi." Disponibilité : ".$statut."<br>";
+        }
+        
     }
 
        
